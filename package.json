@@ -1,5 +1,7 @@
 {
-  "name": "react-firebase-kit",
+  "name": "madeyourlook",
+  "description": "AI-powered personal stylist that curates outfits just for you",
+  "author": "Shawn Kim",
   "private": true,
   "version": "0.0.0",
   "type": "module",
