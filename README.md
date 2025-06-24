@@ -1,8 +1,8 @@
-# 👕 fitcheck
+# 👕 madeyourlook
 
-**fitcheck** is an AI-powered personal shopping assistant that curates outfits based on your style, budget, and preferences.
+**madeyourlook** is an AI-powered personal shopping assistant that curates outfits based on your style, budget, and preferences.
 
-Users complete a short, interactive style quiz — then fitcheck continuously scans the web for new product drops, price changes, and full outfit recommendations tailored to them. Think of it as your AI stylist, built for the real world.
+Users complete a short, interactive style quiz — then madeyourlook continuously scans the web for new product drops, price changes, and full outfit recommendations tailored to them. Think of it as your AI stylist, built for the real world.
 
 ---
 
@@ -28,6 +28,6 @@ Users complete a short, interactive style quiz — then fitcheck continuously sc
 
 ## 🧪 Status
 
-fitcheck is currently a work-in-progress MVP — built in public as both a product experiment and technical showcase.
+madeyourlook is currently a work-in-progress MVP — built in public as both a product experiment and technical showcase.
 
-Follow progress or contribute at: [github.com/sgk94/fitcheck](https://github.com/sgk94/fitcheck)
+Follow progress or contribute at: [github.com/sgk94/madeyourlook](https://github.com/sgk94/madeyourlook)
