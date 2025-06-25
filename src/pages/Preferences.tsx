@@ -5,19 +5,57 @@ import smartcasualimage from "../../public/smartcasual.png";
 import highfashionimage from "../../public/highfashion.png";
 import outdoorimage from "../../public/outdoor.png";
 import retroimage from "../../public/retro.png";
+import { useState } from "react";
 
 export default function Preferences() {
-  const collection = [
-    { label: "Street Wear", tag: "streetwear", styleImage: streetwearimage },
-    { label: "Smart Casual", tag: "smartcasual", styleImage: smartcasualimage },
-    { label: "High Fashion", tag: "highfashion", styleImage: highfashionimage },
-    { label: "Outdoor", tag: "outdoor", styleImage: outdoorimage },
-    { label: "Retro", tag: "retro", styleImage: retroimage },
+  const styleArray = [
+    {
+      label: "Street Wear",
+      tag: "streetwear",
+      styleImage: streetwearimage,
+      isSelected: false,
+    },
+    {
+      label: "Smart Casual",
+      tag: "smartcasual",
+      styleImage: smartcasualimage,
+      isSelected: false,
+    },
+    {
+      label: "High Fashion",
+      tag: "highfashion",
+      styleImage: highfashionimage,
+      isSelected: false,
+    },
+    {
+      label: "Outdoor",
+      tag: "outdoor",
+      styleImage: outdoorimage,
+      isSelected: false,
+    },
+    { label: "Retro", tag: "retro", styleImage: retroimage, isSelected: false },
   ];
 
-  const cards = collection.map((card) => {
+  const [preferences, setPreferences] = useState(styleArray);
+
+  const onClickHandler = (label: string) => {
+    setPreferences((prevCollection) =>
+      prevCollection.map((card) =>
+        card.label === label ? { ...card, isSelected: !card.isSelected } : card
+      )
+    );
+  };
+
+  const cards = preferences.map((card) => {
     return (
-      <Card label={card.label} styleImage={card.styleImage} tag={card.tag} />
+      <Card
+        key={card.label}
+        label={card.label}
+        styleImage={card.styleImage}
+        tag={card.tag}
+        isSelected={card.isSelected}
+        onClickHandler={onClickHandler}
+      />
     );
   });
 
