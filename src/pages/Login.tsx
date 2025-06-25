@@ -1,6 +1,7 @@
 import { useAuth } from "../context/AuthContext";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PageLayout from "../components/PageLayout";
 
 export default function Login() {
   const auth = useAuth();
@@ -13,7 +14,6 @@ export default function Login() {
 
     try {
       await auth.login(email, password);
-      debugger;
       navigate("/dashboard");
     } catch (error) {
       console.error("Login failed:", error);
@@ -21,7 +21,7 @@ export default function Login() {
   };
 
   return (
-    <>
+    <PageLayout>
       <form
         onSubmit={handleSubmit}
         className="max-w-sm mx-auto mt-12 p-4 border rounded space-y-4"
@@ -51,6 +51,6 @@ export default function Login() {
           submit
         </button>
       </form>
-    </>
+    </PageLayout>
   );
 }
