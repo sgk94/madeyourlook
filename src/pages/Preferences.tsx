@@ -6,8 +6,11 @@ import highfashionimage from "../../public/highfashion.png";
 import outdoorimage from "../../public/outdoor.png";
 import retroimage from "../../public/retro.png";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { savePreferredStyles } from "../lib/localStorageUtils";
 
 export default function Preferences() {
+  const navigate = useNavigate();
   const styleArray = [
     {
       label: "Street Wear",
@@ -38,12 +41,22 @@ export default function Preferences() {
 
   const [preferences, setPreferences] = useState(styleArray);
 
+  // HANDLERS
+
   const onClickHandler = (label: string) => {
     setPreferences((prevCollection) =>
       prevCollection.map((card) =>
         card.label === label ? { ...card, isSelected: !card.isSelected } : card
       )
     );
+  };
+
+  const preferenceSubmitHandler = async () => {
+    const selectedTags = preferences
+      .filter((p) => p.isSelected)
+      .map((p) => p.tag);
+    savePreferredStyles(selectedTags);
+    navigate("/dashboard");
   };
 
   const cards = preferences.map((card) => {
@@ -61,8 +74,17 @@ export default function Preferences() {
 
   return (
     <PageLayout>
-      <div className="flex-row justify-center min-h-screen bg-gray-50 px-4 p-2 rounded-lg grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="min-h-screen bg-gray-50 p-4 rounded-lg grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {cards}
+      </div>
+
+      <div className="flex justify-end mt-4">
+        <button
+          onClick={preferenceSubmitHandler}
+          className="bg-stone-500 rounded-md p-2 hover:bg-stone-700 text-white"
+        >
+          submit preferences
+        </button>
       </div>
     </PageLayout>
   );

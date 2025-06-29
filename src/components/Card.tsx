@@ -17,7 +17,7 @@ export default function Card({
     <button
       onClick={() => onClickHandler(label)}
       className={`bg-white rounded-xl shadow-md p-4 max-w-[185px] max-h-[300px] ${
-        isSelected ? "outline outline-3 outline-purple-500" : ""
+        isSelected ? "outline outline-3 outline-stone-500" : ""
       }`}
     >
       <span>{label}</span>
